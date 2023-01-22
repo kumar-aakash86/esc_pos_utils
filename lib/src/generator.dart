@@ -461,6 +461,7 @@ class Generator {
   /// Total width of columns in one row must be equal 12.
   List<int> row(List<PosColumn> cols) {
     List<int> bytes = [];
+    bytes += setStyles(PosStyles().copyWith(align: styles.align));
     final isSumValid = cols.fold(0, (int sum, col) => sum + col.width) == 12;
     if (!isSumValid) {
       throw Exception('Total columns width must be equal to 12');
